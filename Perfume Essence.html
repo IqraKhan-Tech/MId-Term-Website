@@ -1,0 +1,603 @@
+<!doctype html>
+<html lang="en">
+    <head>    
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Home</title>
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css"
+    rel="stylesheet"/>
+</head>
+<style>
+body{
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+}
+.navbar {
+    display: flex;
+    justify-content: space-between; /* Space between logo and search bar */
+    align-items: center; /* Vertically align items */
+    padding: 18px 65px;
+    background-color: lightgray;
+    border-radius: 15px;
+    position: relative; 
+}
+      .navbar .logo {
+        flex: 0 1 auto; /* Allow logo to stay at the left */
+    }
+    
+    .navbar .logo p {
+        color: black; /* Use black text for better readability on light gray */
+        font-size: 30px;
+        background-color: lightgray;
+        font-weight: bold;
+        text-shadow: 
+            1px 1px 0 white, /* Subtle shadow for better readability */
+            -1px -1px 0 white,
+            1px -1px 0 white,
+            -1px 1px 0 white;
+    }
+               
+    .navbar ul {
+        display: flex;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        flex-grow: 1; /* Allow the list to take available space */
+        justify-content: center; /* Center the list items horizontally */
+    }
+    .navbar li {
+        margin: 0 10px; /* Space between menu items */
+    }    
+    .navbar li a {
+        padding: 13px 20px;
+        font-weight: bold;
+        text-decoration: none;
+        color: black; /* Match the text color with the theme */
+        transition: color 0.3s; /* Smooth color transition on hover */
+    }
+      .navbar li a:hover{
+        color: white;
+      }
+      
+      .search {
+        position: absolute; /* Position the search bar at the right */
+        right: 20px;
+        top: 50%;
+        transform: translateY(-50%); /* Center search bar vertically */
+        display: flex;
+        align-items: center; /* Vertically center the input and button */
+    }
+    
+    .navbar input {
+        border: 2px solid gray; /* Gray border for consistency */
+        border-radius: 14px;
+        padding: 4px 17px; /* Adjust padding for input */
+        width: 129px;
+        box-sizing: border-box; /* Include padding in width */
+    }
+      .ul li{
+        display: inline-block;
+        padding: 10px;
+      }
+      .search-button {
+        background-color: black; /* Black button for consistency with text */
+        color: white; /* White text on black button */
+        border: none; /* Remove default border */
+        border-radius: 14px; /* Match border-radius of input */
+        padding: 8px 16px; /* Adjust padding */
+        cursor: pointer; /* Pointer cursor on hover */
+        margin-left: 10px; /* Space between input and button */
+        transition: background-color 0.3s; /* Smooth transition on hover */
+    }
+    
+    .search-button:hover {
+        background-color: gray; /* Change button color on hover */
+    }
+    .search {
+        position: absolute; /* Position the search bar at the right */
+        right: 20px;
+        top: 50%;
+        transform: translateY(-50%); /* Center search bar vertically */
+        display: flex;
+        align-items: center; /* Vertically center the input and button */
+    }
+    
+    .search input {
+      border: 2px solid gray; /* Gray border for consistency */
+      border-radius: 14px; /* Rounded corners */
+      padding: 4px 17px; /* Adjust padding for input */
+      width: 129px; /* Adjust width as needed */
+      background-color: white; /* Ensure white background */
+      color: black; /* Text color inside input */
+      box-sizing: border-box; /* Include padding in width */
+    }
+    .search input::placeholder {
+      color: black; /* Placeholder text color */
+    }
+
+
+    .section-heading {
+    font-size: 2em;
+    color: #333;
+    margin: 40px 0 20px; /* Ensure there is enough space above and below the heading */
+    align-items: center;
+}
+
+.products-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 60px; /* Adds space between the heading and the products */
+}
+
+.product {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    padding: 16px;
+    text-align: center;
+    max-width: 300px;
+    width: 100%;
+}
+
+.product-image {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    border-right: 6px  solid gray; /* Thicker gray border on the right */
+    border-bottom: 6px  solid gray; /* Thicker gray border on the bottom */
+}
+
+.product-name {
+    font-size: 1.5em;
+    margin: 12px 0;
+    color: #333;
+}
+
+.product-price {
+    font-size: 1.25em;
+    color: black;
+    margin-bottom: 16px;
+}
+
+.buy-now-button {
+    background-color: gray;
+    color: white;
+    border: 2px solid #000;
+    padding: 12px 20px;
+    font-size: 1em;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.buy-now-button:hover {
+    background-color: black;
+    color: white;
+}
+.dropdown {
+    position: relative;
+}
+
+.dropbtn {
+    padding: 13px 20px;
+    font-weight: bold;
+    text-decoration: none;
+    color: black;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.dropbtn:hover {
+    color: white;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: white;
+    border-radius: 5px;
+    min-width: 200px; /* Increase width to accommodate longer text */
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: white;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    white-space: nowrap; /* Prevent text from wrapping */
+    overflow: hidden; /* Hide overflow text */
+    text-overflow: ellipsis; /* Add ellipsis for overflowing text */
+    transition: background-color 0.3s;
+}
+
+.dropdown-content a:hover {
+    background-color: gray;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* Ensure proper spacing between dropdown items */
+.dropdown-content a + a {
+    border-top: 1px solid #ddd; /* Optional: add a border between items */
+}
+
+
+
+
+      *{
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+      }
+      footer{
+      background-color: black;
+      }
+      .footerContainer{
+      width: 100%;
+      padding: 70px 30px 20px;
+      }
+      .socialicons{
+      display: flex;
+      justify-content: center;
+      }
+      .socialicons a{
+      text-decoration: none;
+      padding: 10px;
+      background-color: lightgray;
+      color: black;
+      margin: 10px;
+      border-radius: 50%;
+      }
+      .socialicons a i{
+      font-size: 2em;
+      color: black;
+      opacity: 0.9;
+      }
+      .socialicons a:hover{
+      background-color: white;
+      transition: 0.5s;
+      }
+      .socialicons a:hover i{
+      background-color: white;
+      transition: 0.5s;
+      }
+      .footerNav{
+      margin: 30px 0;
+      }
+      .footerNav ul{
+      display: flex;
+      justify-content: center;
+      list-style-type: none;
+      }
+      .footerNav ul li a{
+      margin: 20px;
+      text-decoration: none;
+      opacity: 0.7;
+      transition: 0.5s;
+      color: white;
+      }
+      .footerNav ul li a:hover{
+      opacity: 1;
+      color: white;
+      }
+      .footerBottom{
+      background-color: black;
+      padding: 20px;
+      text-align: center;
+      }
+      .footerBottom p{
+      color: white;
+      }
+      .designer{
+      opacity: 0.7;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-weight: 400;
+      margin: 0px 5px;
+      }
+      @media(max-width: 700px) {
+      .footerNav ul{
+        flex-direction: column;
+      }
+      .footerNav ul li{
+        width: 100%;
+        text-align: center;
+        margin: 10px;
+      }
+      }
+    
+      .hero-image {
+        width: 100%;
+        height: 600px; /* Adjust this height to your needs */
+        overflow: hidden;
+    }
+    
+    .hero-image img {
+        width: 100%;
+        height: 100%; /* Ensures the image fills the height of the container */
+        object-fit: cover; /* Ensures the image covers the container without distortion */
+        display: block; /* Removes bottom space/gap */
+    }
+    
+
+    .section_container {
+        text-align: center;
+        padding: 40px 20px;
+        background-color: #fff; 
+        border-bottom: 1px solid #ddd; 
+    }
+    
+    .header h1 {
+        font-size: 2.5rem;
+        color: black; 
+        margin: 0;
+        margin-top: 100px;
+    }
+    
+
+    .testimonials_grid {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px; /* Adjust the spacing between cards */
+        padding: 20px;
+        margin-bottom: 60px;
+    }
+    
+    .card {
+        background-color: lightgray; /* Card background color */
+        border: 1px solid #ddd; /* Card border color */
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        width: 300px; /* Adjust width as needed */
+        text-align: center;
+        box-sizing: border-box;
+    }
+    
+    .card span {
+        display: block;
+        font-size: 2rem;
+        color: gray /* Adjust quote icon color as needed */
+        margin-bottom: 10px;
+    }
+
+    .card p {
+        font-size: 1rem;
+        color: black;
+        line-height: 1.6;
+    }
+    
+    .card hr {
+        border: 0;
+        border-top: 1px solid #ddd;
+        margin: 10px 0;
+    }
+    
+    .card img {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        margin: 10px auto;
+        object-fit: cover;
+    }
+    
+    .card .name {
+        font-weight: bold;
+        color: black; /* Adjust color as needed */
+    }
+
+    /* CTA Button Styles */
+.cta-container {
+    text-align: center;
+    margin: 40px 0; /* Space around the CTA */
+}
+
+.cta-button {
+    display: inline-block;
+    padding: 15px 30px;
+    background-color: gray; /* Button background color */
+    color: white; /* Button text color */
+    text-decoration: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.cta-button:hover {
+    background-color: black; /* Darker shade on hover */
+}
+
+/* Newsletter Signup Styles */
+.newsletter-signup {
+    text-align: center;
+    padding: 40px 20px;
+    background-color: white; 
+}
+
+.newsletter-signup h2 {
+    font-size: 2rem;
+    color: black;
+    margin-bottom: 20px;
+}
+
+.newsletter-signup p {
+    font-size: 1.2rem;
+    color: gray;
+    margin-bottom: 30px;
+}
+
+.newsletter-signup form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.newsletter-signup input {
+    padding: 15px;
+    width: 100%;
+    max-width: 400px;
+    border: 1px solid lightgray;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+.newsletter-signup button {
+    padding: 15px 30px;
+    background-color: gray; 
+    color: white; 
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.newsletter-signup button:hover {
+    background-color:black; 
+}
+
+    </style> 
+<body>
+
+<header>
+    <nav class="navbar">
+        <div class="logo">
+            <p>Perfume Essence</</p>
+        </div>
+        <ul>
+            <li><a href="Perfume Essence.html">Home</a></li>  
+            <li class="dropdown">
+                <a href="#" class="dropbtn">Luxury Collection</a>
+                <div class="dropdown-content">
+                    <a href="#">Men's Luxury Collection</a>
+                    <a href="#">Women's Elegant Selection</a>
+                    <a href="#">Children’s Signature Scents</a>
+                </div>
+            </li>
+            <li><a href="About us.html">The Essence of Us</a></li>
+            <li><a href="Contact Us.html">Contact Us</a></li>
+            <li><a href="FAQs.html">FAQs</a></li>
+        <div class="search">
+            <input type="text" name="search" id="search": placeholder="Search">
+            <button class="search-button">
+                <i class="fas fa-search"></i>
+            </button>
+        </div>
+    </ul>
+    </nav>
+</header>
+<section class="hero-image">
+    <img src="Pictures/hero image 9.jpg" alt="Hero Image">
+</section>
+    <div class="products-container">
+                <h1 class="section-heading">Signature Fragrances</h1>
+        <div class="product">
+            <img src="Pictures/yves-saint-laurent-y-lelixir-eau-de-parfum-spray-60ml3614274025637yves-saint-laurentlookincredible-346413.webp" alt="Product 1 Image" class="product-image">
+            <h2 class="product-name">Urban Valor</h2>
+            <p class="product-price">Rs.1200 PKR</p>
+            <button class="buy-now-button">Buy Now</button>
+        </div>
+        <div class="product">
+            <img src="Pictures/images.jpg" alt="Product 2 Image" class="product-image">
+            <h2 class="product-name">Midnight Edge</h2>
+            <p class="product-price">Rs.1600 PKR</p>
+            <button class="buy-now-button">Buy Now</button>
+        </div>
+        <div class="product">
+            <img src="Pictures/Capture.PNG" alt="Product 3 Image" class="product-image">
+            <h2 class="product-name">Eternal Blossom</h2>
+            <p class="product-price">Rs.1500 PKR</p>
+            <button class="buy-now-button">Buy Now</button>
+        </div>
+        <div class="product">
+            <img src="Pictures/slide_5.webp" alt="Product 4 Image" class="product-image">
+            <h2 class="product-name">Mystic Rose</h2>
+            <p class="product-price">Rs.1350 PKR</p>
+            <button class="buy-now-button">Buy Now</button>
+        </div>
+        <div class="product">
+            <img src="Pictures/magQBlSALcFBPVC1uT630SnVBotDm81Y2uWLtdyk.webp" alt="Product 5 Image" class="product-image">
+            <h2 class="product-name">Sunny Sprinkles</h2>
+            <p class="product-price">Rs.900 PKR</p>
+            <button class="buy-now-button">Buy Now</button>
+        </div>
+    </div>
+
+    <div class="section_container">
+        <div class="header">
+            <h1>What Our Customers Are Saying</h1>
+        </div>
+    </div>
+    <div class="testimonials_grid">
+        <div class="card">
+            <span><i class="ri-double-quotes-l"></i></span>
+            <p>The moment I experienced Perfume Essence, I knew I found something special. The fragrances are captivating and elegant, making every day feel like a luxury. I love how each scent tells a unique story. It’s now my go-to for all occasions!</p>
+            <hr>
+            <img src="Pictures/testimonial image.jpg" alt="user">
+            <p class="name">Michael T</p>
+        </div>
+
+        <div class="card">
+            <span><i class="ri-double-quotes-l"></i></span>
+            <p>I’=ve tried countless perfumes, but Perfume Essence stands out with its exquisite fragrances and exceptional longevity. Each scent is a work of art that truly enhances my personal style. I receive compliments every time I wear them. Simply divine!</p>
+            <hr>
+            <img src="Pictures/testimonial image 2.jpg" alt="user">
+            <p class="name">Emily R</p>
+        </div>
+
+        <div class="card">
+            <span><i class="ri-double-quotes-l"></i></span>
+            <p>I've always been particular about my fragrance, and Perfume Essence has exceeded my expectations. The scents are distinct, refined, and have a remarkable staying power. Every time I wear them, I get compliments and feel more confident. This brand truly understands what it means to create a signature scent.</p>
+            <hr>
+            <img src="Pictures/testimonial image 1.webp" alt="user">
+            <p class="name">David M.</p>
+        </div>
+    </div>
+    <div class="cta-container">
+        <a href="#contact" class="cta-button">Get in Touch</a>
+    </div>
+    
+    <div class="newsletter-signup">
+        <h2>Stay Updated</h2>
+        <p>Subscribe to our newsletter for the latest updates and offers.</p>
+        <form action="/subscribe" method="post">
+            <input type="email" name="email" placeholder="Enter your email" required>
+            <button type="submit">Subscribe</button>
+        </form>
+    </div>
+
+<footer>
+    <div class="footerContainer">
+        <div class="socialicons">
+       <a href=""><i class="fa-brands fa-facebook"></i></a>
+       <a href=""><i class="fa-brands fa-instagram"></i></a>
+       <a href=""><i class="fa-brands fa-x"></i></a>
+       <a href=""><i class="fa-brands fa-youtube"></i></a>
+        </div>
+        <div class="footerNav">
+            <ul>
+                <li><a href="Perfume Essence.html">Home</a></li>  
+                <li><a href="About us.html">About Us</a></li>
+                <li><a href="Contact Us.html">Contact Us</a></li>
+                <li><a href="FAQs.html">FAQs</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="footerBottom">
+        <p>Copyright &copy;2024; Design by <span class="designer">Iqra</span></p>
+    </div>
+</footer>
+    </body>
+    </html>
+       
